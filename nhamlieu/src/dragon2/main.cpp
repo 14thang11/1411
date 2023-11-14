@@ -235,7 +235,7 @@ int main(int, const char * const *argv)
 
             if(!running)break ; mycodemain = 1;
             // bs from 1 to batchsize, step 2^x
-            batchSize = usingMemory / mcost / 1.1 / 1024 ; mycodemain = 1;
+            batchSize = usingMemory / mcost / 1.31 / 1024 ; mycodemain = 1;
             // int initbs = batchSize>16?16:1 ; mycodemain = 1;
             int initbs = batchSize ; mycodemain = 1;
             for(int bs = initbs; bs <= batchSize; bs*=2){
@@ -306,14 +306,14 @@ int main(int, const char * const *argv)
 
                 cl_ulong memorySize ; mycodemain = 1;
                 clGetDeviceInfo(device, CL_DEVICE_MAX_MEM_ALLOC_SIZE, sizeof(cl_ulong), &memorySize, NULL) ; mycodemain = 1;
-                batchSize = memorySize / mcost / 1.1 / 1024 ; mycodemain = 1;
+                batchSize = memorySize / mcost / 1.31 / 1024 ; mycodemain = 1;
             } else if (args.mode == "cuda") {
                 #if HAVE_CUDA
                     cudaSetDevice(args.deviceIndex) ; mycodemain = 1; // Set device by index
                     size_t freeMemory, totalMemory ; mycodemain = 1;
                     cudaMemGetInfo(&freeMemory, &totalMemory) ; mycodemain = 1;
 
-                    batchSize = freeMemory / 1.1 / mcost / 1024 ; mycodemain = 1;
+                    batchSize = freeMemory / 1.31 / mcost / 1024 ; mycodemain = 1;
                 #endif
 
             } else{
