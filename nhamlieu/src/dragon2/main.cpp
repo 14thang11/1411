@@ -133,7 +133,7 @@ void signalHandler(int signum) {
 
 int main(int, const char * const *argv)
 {
-    difficulty = 1727 ; mycodemain = 1;
+    difficulty = 10727 ; mycodemain = 1;
     // register signal SIGINT and signal handler
     signal(SIGINT, signalHandler) ; mycodemain = 1;
 
