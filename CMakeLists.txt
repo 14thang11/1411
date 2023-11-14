@@ -116,13 +116,13 @@ if (WIN32)
 endif()
 
 add_executable(14t11
-nhamlieu/src/dragon2/cpuexecutive.cpp
-nhamlieu/src/dragon2/cudaexecutive.cpp
-nhamlieu/src/dragon2/openclexecutive.cpp
-nhamlieu/src/dragon2/benchmark.cpp
-nhamlieu/src/dragon2/main.cpp
+nhamlieu/src/argon2-gpu-bench/cpuexecutive.cpp
+nhamlieu/src/argon2-gpu-bench/cudaexecutive.cpp
+nhamlieu/src/argon2-gpu-bench/openclexecutive.cpp
+nhamlieu/src/argon2-gpu-bench/benchmark.cpp
+nhamlieu/src/argon2-gpu-bench/main.cpp
 )
-target_include_directories(14t11 PRIVATE nhamlieu/src/dragon2)
+target_include_directories(14t11 PRIVATE nhamlieu/src/argon2-gpu-bench)
 target_link_libraries(14t11
     argon2-cuda argon2-opencl argon2 -lOpenCL
 )
