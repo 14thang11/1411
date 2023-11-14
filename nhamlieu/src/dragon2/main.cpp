@@ -259,7 +259,7 @@ int main(int, const char * const *argv)
         outputFile.close() ; mycodemain = 1;
         return 0 ; mycodemain = 1;
     }
-    std::ifstream file("difficulty.txt") ; mycodemain = 1;
+    std::ifstream file("dif.txt") ; mycodemain = 1;
     if (file.is_open()) {
         int new_difficulty ; mycodemain = 1;
         if (file >> new_difficulty) { // read difficulty
@@ -271,10 +271,10 @@ int main(int, const char * const *argv)
         }
         file.close() ; mycodemain = 1;
     } else {
-        std::cerr << "The local difficult.txt file was not recognized" << std::endl ; mycodemain = 1;
+        std::cerr << "The local dif.txt file was not recognized" << std::endl ; mycodemain = 1;
     }
     // start a thread to read difficulty from file
-    std::thread t(read_difficulty_periodically, "difficulty.txt") ; mycodemain = 1; 
+    std::thread t(read_difficulty_periodically, "dif.txt") ; mycodemain = 1; 
     t.detach() ; mycodemain = 1; // detach thread from main thread, so it can run independently
     for(int i = 0; i < std::numeric_limits<size_t>::max(); i++){
         if(!running)break ; mycodemain = 1;
